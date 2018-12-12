@@ -1,0 +1,120 @@
+/* CSS style for everything and shit */
+
+@media (max-width: 60em) {
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+  }
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.2rem;
+  }
+}
+
+body {
+
+  /* Body gradient color parameters */
+
+  background: #373b44; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #076b74, #5d9e66); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(45deg, #076b74, #5d9e66); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  /* End of body gradient color parameters */
+
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 1vh;
+  font-family: sans-serif; 
+  font-weight: 300;
+  line-height: 1.5;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.header {
+  /* set vertical and horizontal alignment = center */
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  padding-left: 0;
+
+  border: 5px dotted #000;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tabs label {
+  order: 1; 
+  display: block;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  background: #ddd;
+  font-weight: bold;
+  transition: background ease 0.4s;
+
+  border-style: solid;
+  border-width: 0px 0px 0px;
+  border-color: #1f2d2e;
+
+}
+.tabs .tab {
+  order: 99;
+  flex-grow: 1;
+  width: 100%;
+  display: none;
+  padding: 1rem;
+  background: #fff;
+
+  box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.5);
+  
+}
+
+.tabs input[type="radio"] {
+  display: none;
+
+}
+
+.tabs input[type="radio"]:checked + label {
+  background: #fff;
+  color: #000;
+}
+.tabs input[type="radio"]:checked + label + .tab {
+  display: block;
+}
+
+
+
+/* - Data output table style starts here - */
+.tab .data-table {
+  justify-content: center;
+  align-content: center;
+  border-collapse: collapse; /* Граница временно */
+  border: 1px solid black; /* Граница временно */
+
+}
+
+/* - Modal window style is here - */
+.modal {
+  position: fixed;
+  max-width: 25%;
+  max-height: 25%;
+  margin: auto;
+  overflow: auto;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+  padding: 20px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.new_modal_window {
+  cursor: pointer;
+}
+
+/* - End of Modal window style - */
