@@ -19,20 +19,20 @@ var modal = new Modal();
       xmlhttp.send(null);
     }
 
-    // --- РЎРѕР·РґР°РµС‚ С‚Р°Р±Р»РёС†Сѓ СЃ РґР°РЅРЅС‹РјРё Р±Р»РѕРєРѕРІ.
+    // --- Создает таблицу с данными блоков.
     function addTable(cnt,rx_str){
     var i;
     var num_ch=num_ch_to_module(Number(rx_str.split('#',2)[1]));
     var sn='0000'+rx_str.split('#',3)[2];
     var ver=rx_str.split('#',4)[3]+'.'+rx_str.split('#',5)[4]+rx_str.split('#',6)[5]+'.'+rx_str.split('#',7)[6]+rx_str.split('#',8)[7];
-    var tname='<p><font color="blue" onclick="ModalWindows_change('+cnt+','+rx_str.split('#',3)[2]+','+rx_str.split('#',1)[0]+')">'+(cnt+1)+' / '+NameModule(Number(rx_str.split('#',2)[1]))+'<p>Р—Р°РІ.в„–: '+sn.slice(-5)+'</p><p>Р’РµСЂСЃРёСЏ: '+ver+'</p><p>РђРґСЂРµСЃ: '+rx_str.split('#',1)[0]+'</p></font></p>';
+    var tname='<p><font color="blue" onclick="ModalWindows_change('+cnt+','+rx_str.split('#',3)[2]+','+rx_str.split('#',1)[0]+')">'+(cnt+1)+' / '+NameModule(Number(rx_str.split('#',2)[1]))+'<p>Зав.№: '+sn.slice(-5)+'</p><p>Версия: '+ver+'</p><p>Адрес: '+rx_str.split('#',1)[0]+'</p></font></p>';
     var ttype='';
     var tval='';
       for (i=0;i<num_ch;i++){
         ttype+='<p><input type="text" id="T'+cnt+'_'+i+'" readonly="" size="30" onclick="ModalWindows_type('+cnt+','+i+')"></p>';
         tval+='<p><input type="text" id="V'+cnt+'_'+i+'" readonly="" size="10"></p>';
       }
-      // --- Р’РЅРѕСЃРёС‚ РґР°РЅРЅС‹Рµ РІ СЏС‡РµР№РєРё С‚Р°Р±Р»РёС†С‹.
+      // --- Вносит данные в ячейки таблицы.
       document.getElementById('table').innerHTML+='<tr style="text-align: center;"><td>'+tname+'</td><td>'+ttype+'</td><td>'+tval+'</td></tr>';
     }
 
@@ -71,45 +71,45 @@ var modal = new Modal();
     function NameModule(type){
       switch(type){
       case 0x01:
-        return 'РњР’РђРўРќ2-Р•Р '
+        return 'МВАТН2-ЕР'
       case 0x02:
-        return 'РњРЎРђРў4-Р•Р '
+        return 'МСАТ4-ЕР'
       case 0x03:
-        return 'РњРЎРђРўРџ4-Р•Р '
+        return 'МСАТП4-ЕР'
       case 0x04:
-        return 'РњРЎРђРўРЎ4-Р•Р '
+        return 'МСАТС4-ЕР'
       case 0x05:
-        return 'РњР’Р”Рћ8-Р•Р '
+        return 'МВДО8-ЕР'
       case 0x06:
-        return 'РњР’Р”Р 8-Р•Р '
+        return 'МВДР8-ЕР'
       case 0x07:
-        return 'РњРЎР”4-Р•Р '
+        return 'МСД4-ЕР'
       case 0x08:
-        return 'РњРЎР”8-Р•Р '
+        return 'МСД8-ЕР'
       case 0x09:
-        return 'РњРЎРђРќ4-Р•Р '
+        return 'МСАН4-ЕР'
       case 0x0A:
-        return 'РњР’РђРўРќ4-Р•Р '
+        return 'МВАТН4-ЕР'
       case 0x11:
-        return 'РњР’РђРўРќ2'
+        return 'МВАТН2'
       case 0x12:
-        return 'РњРЎРђРў4'
+        return 'МСАТ4'
       case 0x13:
-        return 'РњРЎРђРўРџ4'
+        return 'МСАТП4'
       case 0x14:
-        return 'РњРЎРђРўРЎ4'
+        return 'МСАТС4'
       case 0x15:
-        return 'РњР’Р”Рћ8'
+        return 'МВДО8'
       case 0x16:
-        return 'РњР’Р”Р 8'
+        return 'МВДР8'
       case 0x17:
-        return 'РњРЎР”4'
+        return 'МСД4'
       case 0x18:
-        return 'РњРЎР”8'
+        return 'МСД8'
       case 0x19:
-        return 'РњРЎРђРќ4'
+        return 'МСАН4'
       case 0x1A:
-        return 'РњР’РђРўРќ4'
+        return 'МВАТН4'
       }
       return 'Error'
     }
@@ -143,85 +143,85 @@ var modal = new Modal();
     function TypeChannel(type){
       switch(type){
       case 0:
-        return 'РљР°РЅР°Р» РѕС‚РєР»СЋС‡РµРЅ';
+        return 'Канал отключен';
       case 17:
-        return 'Р”РёСЃРєСЂРµС‚РЅС‹Р№ РІС…РѕРґ';
+        return 'Дискретный вход';
       case 33:
-        return 'Р§Р°СЃС‚РѕС‚РЅС‹Р№ РІС…РѕРґ';
+        return 'Частотный вход';
       case 34:
-        return 'РЎС‡РµС‚С‡РёРє РёРјРїСѓР»СЊСЃРѕРІ';
+        return 'Счетчик импульсов';
       case 35:
-        return 'Р¤Р°Р·РЅС‹Р№ РІС…РѕРґ';
+        return 'Фазный вход';
       case 36:
-        return 'РЈСЃРєРѕСЂРµРЅРёРµ';
+        return 'Ускорение';
       case 65:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ 0...5Р’';
+        return 'Аналоговый вход 0...5В';
       case 66:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ 0...10Р’';
+        return 'Аналоговый вход 0...10В';
       case 69:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ 4...20РјРђ';      
+        return 'Аналоговый вход 4...20мА';      
       case 70:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ 0...20РјРђ';
+        return 'Аналоговый вход 0...20мА';
       case 81:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕРїР°СЂР° K-Type';
+        return 'Аналоговый вход термопара K-Type';
       case 82:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕРїР°СЂР° L-Type';
+        return 'Аналоговый вход термопара L-Type';
       case 83:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕРїР°СЂР° E-Type';
+        return 'Аналоговый вход термопара E-Type';
       case 84:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕРїР°СЂР° T-Type';
+        return 'Аналоговый вход термопара T-Type';
       case 85:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕРїР°СЂР° J-Type';
+        return 'Аналоговый вход термопара J-Type';
       case 95:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕРїР°СЂР° СѓРЅРёРІРµСЂСЃР°Р»СЊРЅР°СЏ [РјР’]';
+        return 'Аналоговый вход термопара универсальная [мВ]';
       case 97:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕСЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ Pt100 [В°C]';
+        return 'Аналоговый вход термосопротивление Pt100 [°C]';
       case 98:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕСЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ Pt500 [В°C]';
+        return 'Аналоговый вход термосопротивление Pt500 [°C]';
       case 99:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕСЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ Pt1000 [В°C]';
+        return 'Аналоговый вход термосопротивление Pt1000 [°C]';
       case 100:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕСЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ 50Рџ  [В°C]';
+        return 'Аналоговый вход термосопротивление 50П  [°C]';
       case 101:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕСЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ 100Рџ [В°C]';
+        return 'Аналоговый вход термосопротивление 100П [°C]';
       case 102:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕСЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ 50M8 [В°C]';
+        return 'Аналоговый вход термосопротивление 50M8 [°C]';
       case 103:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕСЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ 100M8 [В°C]';
+        return 'Аналоговый вход термосопротивление 100M8 [°C]';
       case 104:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕСЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ Ni1000 [В°C]';
+        return 'Аналоговый вход термосопротивление Ni1000 [°C]';
       case 111:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ С‚РµСЂРјРѕСЃРѕРїСЂРѕС‚РёРІР»РµРЅРёРµ СѓРЅРёРІРµСЂСЃР°Р»СЊРЅС‹Р№ [РћРј]';
+        return 'Аналоговый вход термосопротивление универсальный [Ом]';
       case 145:
-        return 'Р”РёСЃРєСЂРµС‚РЅС‹Р№ РІС‹С…РѕРґ';
+        return 'Дискретный выход';
       case 161:
-        return 'Р§Р°СЃС‚РѕС‚РЅС‹Р№ РІС‹С…РѕРґ';
+        return 'Частотный выход';
       case 162:
-        return 'РРјРїСѓР»СЊСЃРЅС‹Р№ РІС‹С…РѕРґ';
+        return 'Импульсный выход';
       case 193:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 0...+5Р’';
+        return 'Аналоговый выход 0...+5В';
       case 194:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 0...+10Р’';
+        return 'Аналоговый выход 0...+10В';
       case 195:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ В±5Р’';
+        return 'Аналоговый выход ±5В';
       case 196:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ В±10Р’';
+        return 'Аналоговый выход ±10В';
       case 197:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 4...20РјРђ';
+        return 'Аналоговый выход 4...20мА';
       case 198:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 0...20РјРђ';
+        return 'Аналоговый выход 0...20мА';
       case 199:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 0...22РјРђ';
+        return 'Аналоговый выход 0...22мА';
       case 200:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 0...+5,5Р’';
+        return 'Аналоговый выход 0...+5,5В';
       case 201:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 0...+11Р’';
+        return 'Аналоговый выход 0...+11В';
       case 202:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ В±5,5Р’';
+        return 'Аналоговый выход ±5,5В';
       case 203:
-        return 'РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ В±11Р’';
+        return 'Аналоговый выход ±11В';
       case 238:
-        return 'РћС€РёР±РєР° РєР°РЅР°Р»Р°';
+        return 'Ошибка канала';
       }
       return 'Unknow';
     }
@@ -229,83 +229,83 @@ var modal = new Modal();
     function ValChannel(val,type){
       switch(type){
       case 17:
-        if(val=='0.000')return 'Р’С‹РєР»';
-        else return 'Р’РєР»';
+        if(val=='0.000')return 'Выкл';
+        else return 'Вкл';
       case 33:
-        return val+'Р“С†';
+        return val+'Гц';
       case 34:
-        return val+'РРјРї/РјРёРЅ';
+        return val+'Имп/мин';
       case 35:
-        return val+'CВ°';
+        return val+'C°';
       case 36:
-        return val+'Р“С†/СЃ';
+        return val+'Гц/с';
       case 65:
-        return val+'Р’';     
+        return val+'В';     
       case 66:
-        return val+'Р’'; 
+        return val+'В'; 
       case 69:
-        return val+'РјРђ';
+        return val+'мА';
       case 70:
-        return val+'РјРђ';
+        return val+'мА';
       case 81:
-        return val+'В°C';
+        return val+'°C';
       case 82:
-        return val+'В°C';
+        return val+'°C';
       case 83:
-        return val+'В°C';
+        return val+'°C';
       case 84:
-        return val+'В°C';
+        return val+'°C';
       case 85:
-        return val+'В°C';      
+        return val+'°C';      
       case 95:
-        return val+'РјР’';
+        return val+'мВ';
       case 97:
-        return val+'В°C';
+        return val+'°C';
       case 98:
-        return val+'В°C';
+        return val+'°C';
       case 99:
-        return val+'В°C';
+        return val+'°C';
       case 100:
-        return val+'В°C';
+        return val+'°C';
       case 101:
-        return val+'В°C';
+        return val+'°C';
       case 102:
-        return val+'В°C';
+        return val+'°C';
       case 103:
-        return val+'В°C';
+        return val+'°C';
       case 104:
-        return val+'В°C';
+        return val+'°C';
       case 111:
-        return val+'РћРј';        
+        return val+'Ом';        
       case 145:
-        if(val=='0.000')return 'Р’С‹РєР»';
-        else return 'Р’РєР»';
+        if(val=='0.000')return 'Выкл';
+        else return 'Вкл';
       case 161:
-        return val+'Р“С†';
+        return val+'Гц';
       case 162:
-        return val+'РјРєСЃРµРє';
+        return val+'мксек';
       case 193:
-        return val+'Р’';
+        return val+'В';
       case 194:
-        return val+'Р’';
+        return val+'В';
       case 195:
-        return val+'Р’';
+        return val+'В';
       case 196:
-        return val+'Р’';
+        return val+'В';
       case 197:
-        return val+'РјРђ';
+        return val+'мА';
       case 198:
-        return val+'РјРђ';
+        return val+'мА';
       case 199:
-        return val+'РјРђ';
+        return val+'мА';
       case 200:
-        return val+'Р’';
+        return val+'В';
       case 201:
-        return val+'Р’';
+        return val+'В';
       case 202:
-        return val+'Р’';
+        return val+'В';
       case 203:
-        return val+'Р’';
+        return val+'В';
       case 238:
         return 'Error';
       default:
@@ -355,104 +355,104 @@ var modal = new Modal();
       }
     }
 
-    // Р’РІРѕРґ РґР°РЅРЅС‹С… РІ РјРѕРґР°Р»СЊРЅРѕРј РѕРєРЅРµ
+    // Ввод данных в модальном окне
     function ModalWindows_change(num,sn,addr){
-      modal.element.innerHTML ='<h4 align="center">Р’РІРµРґРёС‚Рµ РЅРѕРІС‹Р№ Р°РґСЂРµСЃ РґР»СЏ РјРѕРґСѓР»СЏ в„–'+(num+1)+' РёР· СЃРёСЃС‚РµРјС‹ Fimatic-C</h4>\
-      <table style="width:400px; "align="center" border="1" cellpadding="6" cellspacing="0" cols="2">\
+      modal.element.innerHTML ='<h4 align="center">Введите новый адрес для модуля №'+(num+1)+' из системы Fimatic-C</h4>\
+      <table style="width:400px;" align="center" border="1" cellpadding="6" cellspacing="0" cols="2">\
       <tr>\
-        <td><b>РЎРµСЂРёР№РЅС‹Р№ РЅРѕРјРµСЂ РјРѕРґСѓР»СЏ</b></td>\
+        <td><b>Серийный номер модуля</b></td>\
         <td><input type="text" id="sn" value="'+sn+'" size=5></td>\
       </tr>\
       <tr>\
-        <td><b>РђРґСЂРµСЃ РјРѕРґСѓР»СЏ</b></td>\
+        <td><b>Адрес модуля</b></td>\
         <td><input type="text" id="addr" value="'+addr+'" size=5></td>\
       </tr>\
       </table>\
-      <p align="center"><button onclick="SaveChange('+num+')">РЈСЃС‚Р°РЅРѕРІРёС‚СЊ</button><button onclick="SaveDell('+num+')">РЈРґР°Р»РёС‚СЊ</button><button onclick="modal.hide()">Р—Р°РєСЂС‹С‚СЊ</button></p>';
+      <p align="center"><button onclick="SaveChange('+num+')">Установить</button><button onclick="SaveDell('+num+')">Удалить</button><button onclick="modal.hide()">Закрыть</button></p>';
       modal.show();
     }
 
     function ModalWindows_type(num,ch){
-      modal.element.innerHTML ='<h4 align="center">Р’С‹Р±РµСЂРёС‚Рµ РЅРѕРІС‹Р№ С‚РёРї РєР°РЅР°Р»Р° РґР»СЏ РјРѕРґСѓР»СЏ в„–'+(num+1)+' РёР· СЃРёСЃС‚РµРјС‹ Fimatic-C</h4>\
+      modal.element.innerHTML ='<h4 align="center">Выберите новый тип канала для модуля №'+(num+1)+' из системы Fimatic-C</h4>\
       <p align="center"><select size="1" name="type">\
-      <option value="0">Р’С‹Р±РµСЂРёС‚Рµ С‚РёРї РєР°РЅР°Р»Р°</option>\
-      <option value="17">Р”РёСЃРєСЂРµС‚РЅС‹Р№ РІС…РѕРґ</option>\
-      <option value="33">Р§Р°СЃС‚РѕС‚РЅС‹Р№</option>\
-      <option value="65">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ 0...5V</option>\
-      <option value="66">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ 0...10V</option>\
-      <option value="69">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ 4...20mA</option>\
-      <option value="70">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС…РѕРґ 0...20mA</option>\
-      <option value="81">Р’С…РѕРґ РўРџ K-Type [В°C]</option>\
-      <option value="82">Р’С…РѕРґ РўРџ L-Type [В°C]</option>\
-      <option value="83">Р’С…РѕРґ РўРџ E-Type [В°C]</option>\
-      <option value="84">Р’С…РѕРґ РўРџ T-Type [В°C]</option>\
-      <option value="85">Р’С…РѕРґ РўРџ J-Type [В°C]</option>\
-      <option value="95">Р’С…РѕРґ РўРџ СѓРЅРёРІРµСЂСЃ.[РјР’]</option>\
-      <option value="97">Р’С…РѕРґ РўC Pt100 a=0.00385[В°C]</option>\
-      <option value="98">Р’С…РѕРґ РўC Pt500 a=0.00385[В°C]</option>\
-      <option value="99">Р’С…РѕРґ РўC Pt1000 a=0.00385[В°C]</option>\
-      <option value="100">Р’С…РѕРґ РўC 50Рџ a=0.00391[В°C]</option>\
-      <option value="101">Р’С…РѕРґ РўC 100Рџ a=0.00391[В°C]</option>\
-      <option value="102">Р’С…РѕРґ РўC 50M8 a=0.00428[В°C]</option>\
-      <option value="103">Р’С…РѕРґ РўC 100M8 a=0.00428[В°C]</option>\
-      <option value="104">Р’С…РѕРґ РўC Ni1000 a=0.00617[В°C]</option>\
-      <option value="111">Р’С…РѕРґ РўC СѓРЅРёРІРµСЂСЃ.[РћРј]</option>\
-      <option value="145">Р”РёСЃРєСЂРµС‚РЅС‹Р№ РІС‹С…РѕРґ</option>\
-      <option value="193">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 0...+5Р’</option>\
-      <option value="194">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 0...+10Р’</option>\
-      <option value="195">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ В±5Р’</option>\
-      <option value="196">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ В±10Р’</option>\
-      <option value="197">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 4...20mA</option>\
-      <option value="198">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 0...20mA</option>\
-      <option value="199">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 0...22mA</option>\
-      <option value="200">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 0...+5,5Р’</option>\
-      <option value="201">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ 0...+11Р’</option>\
-      <option value="202">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ В±5,5Р’</option>\
-      <option value="203">РђРЅР°Р»РѕРіРѕРІС‹Р№ РІС‹С…РѕРґ В±11Р’</option>\
+      <option value="0">Выберите тип канала</option>\
+      <option value="17">Дискретный вход</option>\
+      <option value="33">Частотный</option>\
+      <option value="65">Аналоговый вход 0...5V</option>\
+      <option value="66">Аналоговый вход 0...10V</option>\
+      <option value="69">Аналоговый вход 4...20mA</option>\
+      <option value="70">Аналоговый вход 0...20mA</option>\
+      <option value="81">Вход ТП K-Type [°C]</option>\
+      <option value="82">Вход ТП L-Type [°C]</option>\
+      <option value="83">Вход ТП E-Type [°C]</option>\
+      <option value="84">Вход ТП T-Type [°C]</option>\
+      <option value="85">Вход ТП J-Type [°C]</option>\
+      <option value="95">Вход ТП универс.[мВ]</option>\
+      <option value="97">Вход ТC Pt100 a=0.00385[°C]</option>\
+      <option value="98">Вход ТC Pt500 a=0.00385[°C]</option>\
+      <option value="99">Вход ТC Pt1000 a=0.00385[°C]</option>\
+      <option value="100">Вход ТC 50П a=0.00391[°C]</option>\
+      <option value="101">Вход ТC 100П a=0.00391[°C]</option>\
+      <option value="102">Вход ТC 50M8 a=0.00428[°C]</option>\
+      <option value="103">Вход ТC 100M8 a=0.00428[°C]</option>\
+      <option value="104">Вход ТC Ni1000 a=0.00617[°C]</option>\
+      <option value="111">Вход ТC универс.[Ом]</option>\
+      <option value="145">Дискретный выход</option>\
+      <option value="193">Аналоговый выход 0...+5В</option>\
+      <option value="194">Аналоговый выход 0...+10В</option>\
+      <option value="195">Аналоговый выход ±5В</option>\
+      <option value="196">Аналоговый выход ±10В</option>\
+      <option value="197">Аналоговый выход 4...20mA</option>\
+      <option value="198">Аналоговый выход 0...20mA</option>\
+      <option value="199">Аналоговый выход 0...22mA</option>\
+      <option value="200">Аналоговый выход 0...+5,5В</option>\
+      <option value="201">Аналоговый выход 0...+11В</option>\
+      <option value="202">Аналоговый выход ±5,5В</option>\
+      <option value="203">Аналоговый выход ±11В</option>\
       </select></p>\
-      <p align="center"><button onclick="SaveType('+num+','+ch+')">РЈСЃС‚Р°РЅРѕРІРёС‚СЊ</button><button onclick="modal.hide()">Р—Р°РєСЂС‹С‚СЊ</button></p>';
+      <p align="center"><button onclick="SaveType('+num+','+ch+')">Установить</button><button onclick="modal.hide()">Закрыть</button></p>';
       modal.show();
     }
 
     function ModalWindows_add(){
-      modal.element.innerHTML ='<h4 align="center">Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕРіРѕ РјРѕРґСѓР»СЏ РІ СЃРёСЃС‚РµРјСѓ Fimatic-C</h4>\
-      <table style="width:400px; "align="center" border="1" cellpadding="6" cellspacing="0" cols="2">\
+      modal.element.innerHTML ='<h4 align="center">Добавление нового модуля в систему Fimatic-C</h4>\
+      <table style="width:400px;" align="center" border="1" cellpadding="6" cellspacing="0" cols="2">\
       <tr>\
-        <td><b>РўРёРї РјРѕРґСѓР»СЏ</b></td>\
+        <td><b>Тип модуля</b></td>\
         <td><select size="1" id="type">\
-          <option value="0">Р’С‹Р±РµСЂРёС‚Рµ С‚РёРї РјРѕРґСѓР»СЏ</option>\
-          <option value="1">РњР’РђРўРќ2-Р•Р </option>\
-          <option value="2">РњРЎРђРў4-Р•Р </option>\
-          <option value="3">РњРЎРђРўРџ4-Р•Р </option>\
-          <option value="4">РњРЎРђРўРЎ4-Р•Р </option>\
-          <option value="5">РњР’Р”Рћ8-Р•Р </option>\
-          <option value="6">РњР’Р”Р 8-Р•Р </option>\
-          <option value="7">РњРЎР”4-Р•Р </option>\
-          <option value="8">РњРЎР”8-Р•Р </option>\
-          <option value="9">РњРЎРђРќ4-Р•Р </option>\
-          <option value="10">РњР’РђРўРќ4-Р•Р </option>\
-          <option value="17">РњР’РђРўРќ2</option>\
-          <option value="18">РњРЎРђРў4</option>\
-          <option value="19">РњРЎРђРўРџ4</option>\
-          <option value="20">РњРЎРђРўРЎ4</option>\
-          <option value="21">РњР’Р”Рћ8</option>\
-          <option value="22">РњР’Р”Р 8</option>\
-          <option value="23">РњРЎР”4</option>\
-          <option value="24">РњРЎР”8</option>\
-          <option value="25">РњРЎРђРќ4</option>\
-          <option value="26">РњР’РђРўРќ4</option>\
+          <option value="0">Выберите тип модуля</option>\
+          <option value="1">МВАТН2-ЕР</option>\
+          <option value="2">МСАТ4-ЕР</option>\
+          <option value="3">МСАТП4-ЕР</option>\
+          <option value="4">МСАТС4-ЕР</option>\
+          <option value="5">МВДО8-ЕР</option>\
+          <option value="6">МВДР8-ЕР</option>\
+          <option value="7">МСД4-ЕР</option>\
+          <option value="8">МСД8-ЕР</option>\
+          <option value="9">МСАН4-ЕР</option>\
+          <option value="10">МВАТН4-ЕР</option>\
+          <option value="17">МВАТН2</option>\
+          <option value="18">МСАТ4</option>\
+          <option value="19">МСАТП4</option>\
+          <option value="20">МСАТС4</option>\
+          <option value="21">МВДО8</option>\
+          <option value="22">МВДР8</option>\
+          <option value="23">МСД4</option>\
+          <option value="24">МСД8</option>\
+          <option value="25">МСАН4</option>\
+          <option value="26">МВАТН4</option>\
         </select></td>\
       </tr>\
       <tr>\
-        <td><b>РЎРµСЂРёР№РЅС‹Р№ РЅРѕРјРµСЂ РјРѕРґСѓР»СЏ</b></td>\
+        <td><b>Серийный номер модуля</b></td>\
         <td><input type="text" id="sn" value="0000" size=5></td>\
       </tr>\
       <tr>\
-        <td><b>РђРґСЂРµСЃ РјРѕРґСѓР»СЏ</b></td>\
+        <td><b>Адрес модуля</b></td>\
         <td><input type="text" id="addr" value="1" size=3></td>\
       </tr>\
       </table>\
-      <p align="center"><button onclick="SaveAdd()">Р”РѕР±Р°РІРёС‚СЊ</button><button onclick="modal.hide()">Р—Р°РєСЂС‹С‚СЊ</button></p>';
+      <p align="center"><button onclick="SaveAdd()">Добавить</button><button onclick="modal.hide()">Закрыть</button></p>';
       modal.show();
     }
 

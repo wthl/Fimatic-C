@@ -1,6 +1,6 @@
 /* CSS style for everything and shit */
 
-@media (max-width: 60em) {
+@media (max-width: 70em) {
   .tabs .tab,
   .tabs label {
     order: initial;
@@ -8,38 +8,37 @@
   .tabs label {
     width: 100%;
     margin-right: 0;
-    margin-top: 0.2rem;
+    margin: 1px 0 0 0;
   }
 }
 
 body {
 
-  /* Body gradient color parameters */
-
   background: #373b44; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #076b74, #5d9e66); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(45deg, #076b74, #5d9e66); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  /* End of body gradient color parameters */
-
-  min-height: 100vh;
   box-sizing: border-box;
   font-family: sans-serif; 
   font-weight: 300;
   line-height: 1.5;
-  max-width: 60rem;
   margin: 0 auto;
+  max-width: 75rem;
+  min-height: 100vh;
 }
 
 .header {
   /* set vertical and horizontal alignment = center */
-  padding-top: 1vh;
-  padding-bottom: 1vh;
-  padding-left: 0;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+  padding-left: 1vw;
 }
 
 .footer {
-
+  text-align: center;
+  margin-left: 1vh;
+  margin-top: 2vh;
+  font-size: 10px;
 }
 
 
@@ -52,13 +51,16 @@ body {
 }
 
 .tabs label {
-  order: 1; 
-  display: block;
-  padding: 1rem 2rem;
-  cursor: pointer;
   background: #ddd;
+  cursor: pointer;
+  display: block;
   font-weight: bold;
+  order: 1;
+  padding: 1rem 2rem;
+  text-align: center;
   transition: background ease 0.3s;
+
+  
   /* box-shadow: inset 5px -5px 5px -5px rgba(0, 0, 0, 0.75); */
 }
   .tabs label:hover {
@@ -67,13 +69,14 @@ body {
 
 .tabs .tab {
   order: 99;
-  flex-grow: 1;
-  width: 100%;
-  display: none;
-  padding: 1rem;
+
+  align-items: center;
   background: #fff;
-  /* box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.5); */
   box-shadow: 5px 0px 10px -3px rgba(0, 0, 0, 0.75);
+  display: none;
+  flex-grow: 1;
+  padding: 1rem;
+  width: 100%;
 }
 
 .tabs input[type="radio"] {
@@ -92,11 +95,16 @@ body {
 
 /* - Data output table - */
 .tab .data-table {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  align-content: center;
-  border-collapse: collapse; /* Граница временно */
-  border: 1px solid black; /* Граница временно */
+  border: 1px dashed #000; /* Граница временно */
 }
+
+.data-table {
+  
+}
+
 /* - The end of Data output - */
 
 /* --------------------------------------------------  CONTENT STYLE ENDS HERE -------------------------------------------------- */
