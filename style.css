@@ -24,7 +24,6 @@ body {
 
   min-height: 100vh;
   box-sizing: border-box;
-  padding-top: 1vh;
   font-family: sans-serif; 
   font-weight: 300;
   line-height: 1.5;
@@ -37,10 +36,16 @@ body {
   padding-top: 1vh;
   padding-bottom: 1vh;
   padding-left: 0;
-
-  border: 5px dotted #000;
 }
 
+.footer {
+
+}
+
+
+/* --------------------------------------------------  CONTENT STYLE STARTS HERE -------------------------------------------------- */
+
+/* - Tabs and labels - */
 .tabs {
   display: flex;
   flex-wrap: wrap;
@@ -53,13 +58,13 @@ body {
   cursor: pointer;
   background: #ddd;
   font-weight: bold;
-  transition: background ease 0.4s;
-
-  border-style: solid;
-  border-width: 0px 0px 0px;
-  border-color: #1f2d2e;
-
+  transition: background ease 0.3s;
+  /* box-shadow: inset 5px -5px 5px -5px rgba(0, 0, 0, 0.75); */
 }
+  .tabs label:hover {
+    background: #fff;
+  }
+
 .tabs .tab {
   order: 99;
   flex-grow: 1;
@@ -67,14 +72,12 @@ body {
   display: none;
   padding: 1rem;
   background: #fff;
-
-  box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.5);
-  
+  /* box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.5); */
+  box-shadow: 5px 0px 10px -3px rgba(0, 0, 0, 0.75);
 }
 
 .tabs input[type="radio"] {
   display: none;
-
 }
 
 .tabs input[type="radio"]:checked + label {
@@ -84,20 +87,22 @@ body {
 .tabs input[type="radio"]:checked + label + .tab {
   display: block;
 }
+/* - The end of Tabs and labels - */
 
 
-
-/* - Data output table style starts here - */
+/* - Data output table - */
 .tab .data-table {
   justify-content: center;
   align-content: center;
   border-collapse: collapse; /* Граница временно */
   border: 1px solid black; /* Граница временно */
-
 }
+/* - The end of Data output - */
+
+/* --------------------------------------------------  CONTENT STYLE ENDS HERE -------------------------------------------------- */
 
 /* - Modal window style is here - */
-.modal {
+.modal {              
   position: fixed;
   max-width: 25%;
   max-height: 25%;
