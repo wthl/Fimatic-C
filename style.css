@@ -1,7 +1,7 @@
 /* CSS style for everything and shit */
 
-@media (max-width: 70em) {
-  .tabs .tab,
+@media (max-width: 55em) {
+  .tabs .tab, td,
   .tabs label {
     order: initial;
   }
@@ -16,15 +16,16 @@ body {
 
   background: #373b44; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #076b74, #5d9e66); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(45deg, #076b74, #5d9e66); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to top right, #076b74, #5d9e66); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-  box-sizing: border-box;
+  box-sizing: content-box;
   font-family: sans-serif; 
   font-weight: 300;
   line-height: 1.5;
   margin: 0 auto;
-  max-width: 75rem;
+  max-width: 95rem;
   min-height: 100vh;
+
 }
 
 .header {
@@ -50,22 +51,23 @@ body {
   flex-wrap: wrap;
 }
 
-.tabs label {
-  background: #ddd;
-  cursor: pointer;
-  display: block;
-  font-weight: bold;
-  order: 1;
-  padding: 1rem 2rem;
-  text-align: center;
-  transition: background ease 0.3s;
-
-  
-  /* box-shadow: inset 5px -5px 5px -5px rgba(0, 0, 0, 0.75); */
-}
-  .tabs label:hover {
-    background: #fff;
+  .tabs label {
+    align-items: center;
+    background: #ddd;
+    cursor: pointer;
+    display: flex;
+    order: 1;
+    padding: 1rem 2rem;
+    text-align: center;
+    transition: background ease 0.5s;  
+    /* box-shadow: inset 5px -5px 5px -5px rgba(0, 0, 0, 0.75); */
   }
+    .tabs label:hover {
+      background: #fff;
+    }
+    .tabs label img {
+      padding-right: 10px;
+    }
 
   .tabs .tab {
     order: 99;
@@ -75,8 +77,9 @@ body {
     box-shadow: 5px 0px 10px -3px rgba(0, 0, 0, 0.75);
     display: none;
     flex-grow: 1;
-    padding: 1rem;
+    padding: 1.5em;
     width: 100%;
+    min-height: 50vh;
   }
 
   .tabs input[type="radio"] {
@@ -95,22 +98,21 @@ body {
 
 /* - Data output table - */
 .tab .data-table {
-  display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px dashed #000; /* Граница временно */
+  display: flex;
+  border: 1px solid #000; /* Граница временно */
 }
-  
-  .data-table p {
-    text-align: center;
-  }
 
-  .data-output {
-    margin: 10px;
-    padding: 10px;
-    border: 1px dashed #f00; /* Граница временно */
-    min-width: 100%;
-  }
+.data-output {
+  padding: 2em;
+  border: 1px dashed #f00; /* Граница временно */
+  width: 100%;
+}
+.data-output td {
+  border: 1px dashed #000;
+  padding: 1rem 2rem;
+}
 
 /* - The end of Data output - */
 
