@@ -36,7 +36,7 @@ body {
 
 .footer {
   text-align: center;
-  margin-left: 1vh;
+  margin-bottom: 2vh;
   margin-top: 2vh;
   font-size: 10px;
 }
@@ -67,29 +67,29 @@ body {
     background: #fff;
   }
 
-.tabs .tab {
-  order: 99;
+  .tabs .tab {
+    order: 99;
 
-  align-items: center;
-  background: #fff;
-  box-shadow: 5px 0px 10px -3px rgba(0, 0, 0, 0.75);
-  display: none;
-  flex-grow: 1;
-  padding: 1rem;
-  width: 100%;
-}
+    align-items: center;
+    background: #fff;
+    box-shadow: 5px 0px 10px -3px rgba(0, 0, 0, 0.75);
+    display: none;
+    flex-grow: 1;
+    padding: 1rem;
+    width: 100%;
+  }
 
-.tabs input[type="radio"] {
-  display: none;
-}
+  .tabs input[type="radio"] {
+    display: none;
+  }
 
-.tabs input[type="radio"]:checked + label {
-  background: #fff;
-  color: #000;
-}
-.tabs input[type="radio"]:checked + label + .tab {
-  display: block;
-}
+  .tabs input[type="radio"]:checked + label {
+    background: #fff;
+    color: #000;
+  }
+  .tabs input[type="radio"]:checked + label + .tab {
+    display: block;
+  }
 /* - The end of Tabs and labels - */
 
 
@@ -100,10 +100,17 @@ body {
   justify-content: center;
   border: 1px dashed #000; /* Граница временно */
 }
-
-.data-table {
   
-}
+  .data-table p {
+    text-align: center;
+  }
+
+  .data-output {
+    margin: 10px;
+    padding: 10px;
+    border: 1px dashed #f00; /* Граница временно */
+    min-width: 100%;
+  }
 
 /* - The end of Data output - */
 

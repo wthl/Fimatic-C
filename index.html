@@ -48,19 +48,54 @@
         
       <input type="radio" name="tabs" id="state">
       <label for="state">Состояние</label>
+      
       <div class="tab">
-
         <h2>Состояние</h2>
-        
+        <!-- ---------- Fimatic-C data-table start ---------- -->
         <div class="data-table">
           <form>
-            <p>
-              <input type="button" id="add" value="Добавление нового модуля" onclick="ModalWindows_add()">
-              <input type="button" id="find" value="Поиск подключенных модулей" onclick="cmd_set(&#39;find_net&#39;)">
-              <input type="button" id="conf" value="Автоконфигурация модулей" onclick="cmd_set(&#39;conf_net&#39;)">
-            </p>
+            <table class="data-output" id="table">
+              <thead>
+                <tr>
+                  <td colspan="3" align="center">
+                    <input type="text" id="time" size="100%" readonly>
+                  </td>
+                </tr>
+              </thead>
+              <!-- ---------- CANVAS TESTing start ---------- -->
+              <tbody>
+                <tr>
+                  <td bgcolor="#D3EDF6">
+                    <div class="new_modal_window" onclick="ModalWindows_change(11,22,8)">
+                      <p>2 / МСАТС4..................................................</p>
+                      <p>Зав.№: 00022.........................</p>
+                      <p>Версия: 1.1811.1614.........................</p>
+                      <p>Адрес: 8.........................</p>
+                    </div>
+                  </td>
+                  <td bgcolor="#55773F">
+                    <div>
+                      <p>2 / МСАТС4..................................................</p>
+                      <p>Зав.№: 00022.........................</p>
+                      <p>Версия: 1.1811.1614.........................</p>
+                      <p>Адрес: 8.........................</p>
+                    </div>
+                  </td>
+                  <td bgcolor="#89C3A8">
+                    <div>
+                     <p>2 / МСАТС4..................................................</p>
+                     <p>Зав.№: 00022</p>
+                     <p>Версия: 1.1811.1614</p>
+                     <p>Адрес: 8</p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+              <!-- ---------- CANVAS TESTing end ---------- -->
+            </table>
           </form>
         </div>
+        <!-- ---------- Fimatic-C data-table end ---------- -->
       </div>
         
       <input type="radio" name="tabs" id="drawing">
@@ -105,7 +140,7 @@
 
   <!-- FOOTER STARTS HERE -->
   <div class="footer">
-    &#9400; 2019. Московский завод "Физприбор". All rights reserved
+    &#9400; 2019. Московский завод "Физприбор". Все права защищены.
   </div>
   <!-- FOOTER ENDS HERE -->
 </body>
